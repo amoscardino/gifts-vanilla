@@ -16,11 +16,11 @@ const Home = () => {
   });
   const {
     data: gifts,
-    isLoading: giftsLoading }
-    = useQuery({
-      queryKey: ["gift"],
-      queryFn: getGifts
-    });
+    isLoading: giftsLoading
+  } = useQuery({
+    queryKey: ["gift"],
+    queryFn: getGifts
+  });
 
   if (peopleLoading || giftsLoading)
     return <Loader />;
