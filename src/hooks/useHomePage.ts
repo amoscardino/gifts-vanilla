@@ -14,17 +14,11 @@ const useHomePage = (): UseHomePageResult => {
   const {
     data: people,
     isLoading: peopleLoading
-  } = useQuery({
-    queryKey: ["person"],
-    queryFn: getPeople
-  });
+  } = useQuery({ queryKey: ["person"], queryFn: getPeople });
   const {
     data: gifts,
     isLoading: giftsLoading
-  } = useQuery({
-    queryKey: ["gift"],
-    queryFn: getGifts
-  });
+  } = useQuery({ queryKey: ["gift"], queryFn: getGifts });
 
   return {
     people: people || [],
