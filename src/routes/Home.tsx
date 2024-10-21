@@ -1,31 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
-import { getPeople } from "../api/personApi";
-import { getGifts } from "../api/giftApi";
 import { Link } from "react-router-dom";
 import GrandTotal from "../components/GrandTotal";
 import PersonCard from "../components/PersonCard";
 import Loader from "../components/Loader";
+import { useHomePage } from "../hooks/useHomePage";
 
 const Home = () => {
-  const {
-    data: people,
-    isLoading: peopleLoading
-  } = useQuery({
-    queryKey: ["person"],
-    queryFn: getPeople
-  });
-  const {
-    data: gifts,
-    isLoading: giftsLoading
-  } = useQuery({
-    queryKey: ["gift"],
-    queryFn: getGifts
-  });
+  const { people, gifts, isLoading } = useHomePage();
 
-  if (peopleLoading || giftsLoading)
+  if (isLoading)
     return <Loader />;
 
-  const totalAmount = (gifts || []).reduce((total, gift) => total + (gift.price || 0), 0);
+  const totalAmount = gifts.reduce((total, gift) => total + (gift.price || 0), 0);
 
   return (
     <div className="vstack gap-3">
@@ -35,8 +20,8 @@ const Home = () => {
         </Link>
       </div>
 
-      {(people || []).map(person => {
-        const personGifts = (gifts || []).filter(gift => gift.person.id === person.id);
+      {people.map(person => {
+        const personGifts = gifts.filter(gift => gift.person.id === person.id);
 
         return (
           <PersonCard key={person.id} person={person} gifts={personGifts} />
