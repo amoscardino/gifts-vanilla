@@ -4,7 +4,6 @@ import { getPerson } from "../../api/personApi";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader";
 
-
 const EditPerson = () => {
   const { id } = useParams<{ id: string }>();
   const { data: person } = useQuery({

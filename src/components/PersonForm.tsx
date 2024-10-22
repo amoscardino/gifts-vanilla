@@ -34,19 +34,12 @@ const PersonForm = ({ person }: PersonFormProps) => {
       </div>
 
       <div className="card-footer hstack flex-row-reverse justify-content-between">
-        <button
-          type="submit"
-          className="btn btn-primary"
-        >
+        <button type="submit" className="btn btn-primary">
           Save
         </button>
 
         {person.id && (
-          <button
-            type="button"
-            onClick={onDelete}
-            className="btn btn-outline-danger"
-          >
+          <button type="button" onClick={onDelete} className="btn btn-outline-danger">
             Delete
           </button>
         )}
