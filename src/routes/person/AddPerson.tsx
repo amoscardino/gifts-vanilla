@@ -2,7 +2,11 @@ import PersonForm from "../../components/PersonForm";
 import PersonDto from "../../api/models/personDto";
 
 const AddPerson = () => {
-  return <PersonForm person={{} as PersonDto} />;
+  const person = {} as PersonDto;
+
+  return (
+    <PersonForm person={person} />
+  );
 };
 
 export default AddPerson;

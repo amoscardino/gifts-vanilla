@@ -12,9 +12,11 @@ const EditPerson = () => {
   });
 
   if (!person)
-    return <Loader />;
+    return (<Loader />);
 
-  return <PersonForm person={person!} />;
+  return (
+    <PersonForm person={person!} />
+  );
 };
 
 export default EditPerson;

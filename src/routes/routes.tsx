@@ -7,7 +7,7 @@ import EditGift from "./gift/EditGift";
 import AddPerson from "./person/AddPerson";
 import EditPerson from "./person/EditPerson";
 
-export const routes = [{
+const routes = [{
   path: "/",
   element: <Layout />,
   children: [
@@ -45,3 +45,5 @@ export const routes = [{
     },
   ]
 }] as RouteObject[];
+
+export default routes;

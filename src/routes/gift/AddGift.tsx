@@ -14,9 +14,13 @@ const AddGift = () => {
   });
 
   if (!person)
-    return <Loader />;
+    return (<Loader />);
 
-  return <GiftForm gift={{ person } as GiftDto} />;
+  const gift = { person } as GiftDto;
+
+  return (
+    <GiftForm gift={gift} />
+  );
 };
 
 export default AddGift;

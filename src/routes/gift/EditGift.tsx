@@ -12,9 +12,11 @@ const EditGift = () => {
   });
 
   if (!gift)
-    return <Loader />;
+    return (<Loader />);
 
-  return <GiftForm gift={gift!} />;
+  return (
+    <GiftForm gift={gift!} />
+  );
 };
 
 export default EditGift;
